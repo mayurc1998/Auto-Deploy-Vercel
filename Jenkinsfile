@@ -3,13 +3,14 @@ pipeline {
 
     environment {
         VERCEL_TOKEN = credentials('vercel_token')
+        PATH = "/home/mayur/.nvm/versions/node/v22.13.1/bin:${env.PATH}"
+
     }
 
     stages {
         stage('Install') {
             steps {
                 sh '''
-                export PATH=$PATH:/home/mayur/.nvm/versions/node/v22.13.1/bin
                 node -v
                 npm -v
                 npm install
