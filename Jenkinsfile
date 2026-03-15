@@ -8,7 +8,12 @@ pipeline {
     stages {
         stage('Install') {
             steps {
-                sh 'npm install'
+                sh '''
+                export PATH=$PATH:/home/mayur/.nvm/versions/node/v22.13.1/bin
+                node -v
+                npm -v
+                npm install
+                '''
             }
         }
         stage('Test') {
